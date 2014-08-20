@@ -6,9 +6,11 @@ defmodule PhoenixJobsThree.PageController do
     render conn, "index", jobs: jobs
   end
 
+  def new(conn, _params) do
+    render conn, "new"
+  end
   def create(conn, params) do
     IO.inspect params
-    jobs = PhoenixJobsThree.Queries.jobs_query
-    render conn, "index", jobs: jobs
+    render conn, "new"
   end
 end

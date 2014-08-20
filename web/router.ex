@@ -3,6 +3,6 @@ defmodule PhoenixJobsThree.Router do
 
   get "/", PhoenixJobsThree.PageController, :index, as: :pages
   get "/new", PhoenixJobsThree.PageController, :new, as: :new
-  post "/create", PhoenixJobsThree.PageController, :create, as: :create
+  post "/new", PhoenixJobsThree.PageController, :create, as: :create
 
 end
