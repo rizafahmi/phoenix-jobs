@@ -1,0 +1,4 @@
+<h1>New Job</h1>
+<form class="form-horizontal" action="/create" method="post">
+  <input class="form-control" type="text" name="title">
+</form>

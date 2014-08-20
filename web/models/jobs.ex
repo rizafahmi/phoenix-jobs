@@ -1,4 +1,4 @@
-defmodule PhoenixJobs.Jobs do
+defmodule PhoenixJobsThree.Jobs do
     use Ecto.Model
 
     schema "jobs" do
