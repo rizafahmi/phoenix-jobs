@@ -1,0 +1,12 @@
+%{"cowboy": {:package, "1.0.0"},
+  "cowlib": {:package, "1.0.0"},
+  "decimal": {:package, "0.2.4"},
+  "ecto": {:package, "0.2.3"},
+  "inflex": {:package, "0.2.4"},
+  "jazz": {:package, "0.2.0"},
+  "linguist": {:package, "0.1.1"},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "e802868f8ab4a37d614ba697e7d7694461427a8f", []},
+  "plug": {:package, "0.6.0"},
+  "poolboy": {:package, "1.2.1"},
+  "postgrex": {:package, "0.5.4"},
+  "ranch": {:package, "1.0.0"}}
