@@ -4,3 +4,5 @@
   <li><%= job.title %> - <%= job.description %></li>
 <% end %>
 </ul>
+
+<a href="/new" class="btn btn-success">Post a new job</a>

@@ -1,5 +1,6 @@
 defmodule PhoenixJobsThree.PageController do
   use Phoenix.Controller
+  alias PhoenixJobsThree.Router
 
   def index(conn, _params) do
     jobs = PhoenixJobsThree.Queries.jobs_query
@@ -9,8 +10,10 @@ defmodule PhoenixJobsThree.PageController do
   def new(conn, _params) do
     render conn, "new"
   end
-  def create(conn, params) do
-    IO.inspect params
-    render conn, "new"
+
+  def save(conn, params) do
+    job = %PhoenixJobsThree.Jobs{title: params["title"], description: params["description"], job_type: params["type"], job_status: params["status"]}
+    PhoenixJobsThree.Repo.insert(job)
+    redirect conn, Router.index_path(:index)
   end
 end
