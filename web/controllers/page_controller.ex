@@ -16,4 +16,10 @@ defmodule PhoenixJobsThree.PageController do
     PhoenixJobsThree.Repo.insert(job)
     redirect conn, Router.index_path(:index)
   end
+
+  def job(conn, %{"id" => id}) do
+    job = PhoenixJobsThree.Queries.job_detail_query(id)
+    IO.inspect job
+    render conn, "job", job: job
+  end
 end

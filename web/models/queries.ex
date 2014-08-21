@@ -6,4 +6,12 @@ defmodule PhoenixJobsThree.Queries do
             select: job
     PhoenixJobsThree.Repo.all(query)
   end
+
+  def job_detail_query(id) do
+    int_id = String.to_integer(id)
+    query = from job in PhoenixJobsThree.Jobs,
+            where: job.id == ^int_id,
+            select: job
+    PhoenixJobsThree.Repo.all(query) |> List.first
+  end
 end

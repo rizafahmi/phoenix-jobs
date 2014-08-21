@@ -9,7 +9,7 @@
 <ul class="list-unstyled" style="">
   <%= for job <- @jobs do %>
   <li class="job-list">
-  <a href="#">
+  <a href="/job/<%= job.id %>">
     <span class="title"><%= job.title %></span>
     <span class="label label-success"><%= job.job_type %></span>
     <span class="label label-default"><%= job.job_status %></span>
