@@ -5,6 +5,7 @@ defmodule PhoenixJobsThree.Router do
   get "/new", PhoenixJobsThree.PageController, :new, as: :new
   post "/new", PhoenixJobsThree.PageController, :save, as: :save
   get "/job/:id", PhoenixJobsThree.PageController, :job, as: :job
-  get "/edit/:id", PhoenixJobsThree.PageController, :edit, as: :edit
+  get "/job/:id/edit", PhoenixJobsThree.PageController, :edit, as: :edit
+  post "/job/:id", PhoenixJobsThree.PageController, :update, as: :update
 
 end
