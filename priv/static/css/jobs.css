@@ -1,0 +1,15 @@
+.footer {
+  margin-top: 50px;
+}
+.job-list {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+li a {
+ color: #428bca;
+ text-decoration: none;
+}
+
+li a .title {
+ font-size: 1.2em; 
+}

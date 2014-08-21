@@ -9,21 +9,19 @@
 
     <title>Hello Phoenix!</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/jobs.css">
   </head>
 
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="https://github.com/phoenixframework/phoenix">Get Started</a></li>
-        </ul>
         <span class="logo"></span>
       </div>
 
       <%= @inner %>
 
       <div class="footer">
-        <p><a href="http://phoenixframework.org">phoenixframework.org</a></p>
+        <p>Made with ♥&nbsp;and <a href="http://phoenixframework.org">Phoenix Framework</a></p>
       </div>
 
     </div> <!-- /container -->
