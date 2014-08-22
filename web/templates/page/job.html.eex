@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-md-12">
+    <%= if @action == "delete" do %>
+    <h2>Are you sure want to delete <%= @job.title %>??</h2>
+    <%= else %>
     <h2><%= @job.title %></h2>
+    <%= end %>
     <h4>
       <span class="label label-success">
         <%= @job.job_type %>
@@ -16,6 +20,13 @@
     </p>
   </div>
   <div class="col-md-12">
+    <form action="<%= destroy_path(:destroy) %>" method="post">
     <a href="/" class="btn btn-success">Back</a>
+    <%= if @action == "delete" do %>
+      <input type="hidden" name="id" value="<%= @job.id %>">
+      <button type="submit" class="btn btn-danger pull-right">Delete</button>
+    <%= end %>
+    </form>
   </div>
+
 </div>

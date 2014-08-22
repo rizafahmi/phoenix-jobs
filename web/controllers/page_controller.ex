@@ -17,9 +17,9 @@ defmodule PhoenixJobsThree.PageController do
     redirect conn, Router.index_path(:index)
   end
 
-  def job(conn, %{"id" => id}) do
-    job = PhoenixJobsThree.Queries.job_detail_query(id)
-    render conn, "job", job: job
+  def job(conn, params) do
+    job = PhoenixJobsThree.Queries.job_detail_query(params["id"])
+    render conn, "job", [job: job, action: params["action"]]
   end
 
   def edit(conn, %{"id" => id}) do
@@ -33,6 +33,13 @@ defmodule PhoenixJobsThree.PageController do
     job = %{job | title: params["title"], description: params["description"],
       job_type: params["type"], job_status: params["status"]}
     PhoenixJobsThree.Repo.update(job)
+    redirect conn, Router.index_path(:index)
+  end
+
+  def destroy(conn, params) do
+    job = PhoenixJobsThree.Queries.job_detail_query(params["id"])
+    PhoenixJobsThree.Repo.delete(job)
+
     redirect conn, Router.index_path(:index)
   end
 end

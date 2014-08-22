@@ -9,13 +9,21 @@
 <ul class="list-unstyled" style="">
   <%= for job <- @jobs do %>
   <li class="job-list">
-  <a href="/job/<%= job.id %>">
-    <span class="title"><%= job.title %></span>
-    <span class="label label-success"><%= job.job_type %></span>
-    <span class="label label-default"><%= job.job_status %></span>
-  </a>
-  <a href="/job/<%= job.id %>/edit" class="btn btn-warning btn-sm pull-right">
-    Edit</a>
+    <div class="row">
+      <div class="col-md-9">
+        <a href="/job/<%= job.id %>">
+          <span class="title"><%= job.title %></span>
+          <span class="label label-success"><%= job.job_type %></span>
+          <span class="label label-default"><%= job.job_status %></span>
+        </a>
+      </div>
+      <div class="col-md-3 buttons" style="text-align: right">
+        <a href="/job/<%= job.id %>/edit" class="btn btn-warning btn-sm">
+          Edit</a> &nbsp;&nbsp;
+        <a href="/job/<%= job.id %>/delete" class="btn btn-default btn-sm">
+          Delete</a>
+      </div>
+    </div>
   </li>
   <% end %>
 </ul>

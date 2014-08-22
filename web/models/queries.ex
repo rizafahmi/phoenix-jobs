@@ -3,6 +3,7 @@ defmodule PhoenixJobsThree.Queries do
 
   def jobs_query do
     query = from job in PhoenixJobsThree.Jobs,
+            order_by: [desc: job.id],
             select: job
     PhoenixJobsThree.Repo.all(query)
   end
