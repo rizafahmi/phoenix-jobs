@@ -14,7 +14,7 @@ defmodule PhoenixJobsThree.PageController do
   def save(conn, params) do
     job = %PhoenixJobsThree.Jobs{title: params["title"], description: params["description"], job_type: params["type"], job_status: params["status"]}
     PhoenixJobsThree.Repo.insert(job)
-    redirect conn, Router.index_path(:index)
+    redirect conn, Router.pages_path(:index)
   end
 
   def job(conn, params) do
@@ -33,13 +33,13 @@ defmodule PhoenixJobsThree.PageController do
     job = %{job | title: params["title"], description: params["description"],
       job_type: params["type"], job_status: params["status"]}
     PhoenixJobsThree.Repo.update(job)
-    redirect conn, Router.index_path(:index)
+    redirect conn, Router.pages_path(:index)
   end
 
   def destroy(conn, params) do
     job = PhoenixJobsThree.Queries.job_detail_query(params["id"])
     PhoenixJobsThree.Repo.delete(job)
 
-    redirect conn, Router.index_path(:index)
+    redirect conn, Router.pages_path(:index)
   end
 end
