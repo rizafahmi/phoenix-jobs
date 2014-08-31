@@ -9,5 +9,4 @@ defmodule PhoenixJobsThree.Router do
   post "/job/:id", PhoenixJobsThree.PageController, :update, as: :update
   get "/job/:id/:action", PhoenixJobsThree.PageController, :job, as: :delete
   post "/", PhoenixJobsThree.PageController,:destroy, as: :destroy
-
 end
