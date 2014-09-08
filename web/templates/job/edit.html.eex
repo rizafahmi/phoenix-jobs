@@ -1,8 +1,9 @@
 <h2>Edit Job</h2>
-<form class="form-horizontal" action="/job/<%= @job.id %>" method="post">
+<form class="form-horizontal" action="<%= jobs_path(:update, @job.id) %>" method="post">
   <div class="form-group">
     <label for="title" class="col-sm-2 control-label">Job Title</label>
     <div class="col-sm-10">
+      <input type="hidden" name="_method" value="PATCH">
       <input type="text" class="form-control" value="<%= @job.title %>" name="title" placeholder="Job Title" required="required">
     </div>
   </div>
@@ -33,3 +34,18 @@
     </div>
   </div>
 </form>
+<script>
+  // $("form").on("submit", function(event) {
+    // event.preventDefault();
+
+    // $.ajax({
+    //   url: '/jobs/<%= @job.id %>',
+    //   type: "PUT",
+    //   data: $('form').serialize(),
+    //   success: function(data) {
+    //     window.location = '/';
+    //   }
+    // });
+    // window.location = '/';
+  // });
+</script>

@@ -11,7 +11,7 @@ defmodule PhoenixJobsThree.JobController do
     render conn, "new"
   end
 
-  def save(conn, params) do
+  def create(conn, params) do
     job = %PhoenixJobsThree.Jobs{title: params["title"], description: params["description"], job_type: params["type"], job_status: params["status"]}
     PhoenixJobsThree.Repo.insert(job)
     redirect conn, Router.pages_path(:index)
