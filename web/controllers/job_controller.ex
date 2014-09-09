@@ -1,9 +1,12 @@
 defmodule PhoenixJobsThree.JobController do
   use Phoenix.Controller
   alias PhoenixJobsThree.Router
+  alias PhoenixJobsThree.Jobs
+  alias PhoenixJobsThree.Repo
+  alias PhoenixJobsThree.Queries
 
   def index(conn, _params) do
-    jobs = PhoenixJobsThree.Queries.jobs_query
+    jobs = Queries.jobs_query
     render conn, "index", jobs: jobs
   end
 
@@ -12,33 +15,33 @@ defmodule PhoenixJobsThree.JobController do
   end
 
   def create(conn, params) do
-    job = %PhoenixJobsThree.Jobs{title: params["title"], description: params["description"], job_type: params["type"], job_status: params["status"]}
-    PhoenixJobsThree.Repo.insert(job)
+    job = %Jobs{title: params["title"], description: params["description"], job_type: params["type"], job_status: params["status"]}
+    Repo.insert(job)
     redirect conn, Router.pages_path(:index)
   end
 
-  def job(conn, params) do
-    job = PhoenixJobsThree.Queries.job_detail_query(params["id"])
+  def show(conn, params) do
+    job = Queries.job_detail_query(params["id"])
     render conn, "job", [job: job, action: params["action"]]
   end
 
   def edit(conn, %{"id" => id}) do
-    job = PhoenixJobsThree.Queries.job_detail_query(id)
+    job = Queries.job_detail_query(id)
     render conn, "edit", job: job
   end
 
   def update(conn, params) do
     IO.inspect params["type"]
-    job = PhoenixJobsThree.Repo.get(PhoenixJobsThree.Jobs, params["id"])
+    job = Repo.get(PhoenixJobsThree.Jobs, params["id"])
     job = %{job | title: params["title"], description: params["description"],
       job_type: params["type"], job_status: params["status"]}
-    PhoenixJobsThree.Repo.update(job)
+    Repo.update(job)
     redirect conn, Router.pages_path(:index)
   end
 
   def destroy(conn, params) do
-    job = PhoenixJobsThree.Queries.job_detail_query(params["id"])
-    PhoenixJobsThree.Repo.delete(job)
+    job = Queries.job_detail_query(params["id"])
+    Repo.delete(job)
 
     redirect conn, Router.pages_path(:index)
   end

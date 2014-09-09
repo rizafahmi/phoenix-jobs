@@ -20,7 +20,7 @@
     </p>
   </div>
   <div class="col-md-12">
-    <form action="<%= jobs_path(:destroy) %>" method="post">
+    <form action="<%= jobs_path(:destroy, @job.id) %>" method="post">
     <a href="/" class="btn btn-success">Back</a>
     <%= if @action == "delete" do %>
       <input type="hidden" name="id" value="<%= @job.id %>">
