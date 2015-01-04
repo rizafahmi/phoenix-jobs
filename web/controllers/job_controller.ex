@@ -32,7 +32,7 @@ defmodule PhoenixJobsThree.JobController do
 
   def update(conn, params) do
     IO.inspect params["type"]
-    job = Repo.get(PhoenixJobsThree.Jobs, params["id"])
+    job = Repo.get(PhoenixJobsThree.Jobs, String.to_integer(params["id"]))
     job = %{job | title: params["title"], description: params["description"],
       job_type: params["type"], job_status: params["status"]}
     Repo.update(job)
